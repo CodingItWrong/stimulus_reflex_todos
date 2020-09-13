@@ -4,6 +4,10 @@
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
+  # Required to use session storage in StimulusReflex in tests
+  config.session_store :cache_store
+  config.cache_store = :memory_store
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.cache_classes = true
@@ -22,7 +26,6 @@ Rails.application.configure do
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
-  config.cache_store = :null_store
 
   # Raise exceptions instead of rendering exception templates.
   config.action_dispatch.show_exceptions = false
