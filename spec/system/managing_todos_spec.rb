@@ -37,6 +37,26 @@ RSpec.describe 'ManagingTodos', type: :system do
     expect(Todo.count).to eq(1)
   end
 
+  it 'allows editing todos' do
+    old_todo_name = 'Old Todo Name'
+    new_todo_name = 'New Todo Name'
+
+    todo = FactoryBot.create(:todo, name: old_todo_name, user: user)
+
+    sign_in user
+    visit '/'
+
+    click_on 'Edit'
+
+    fill_in 'Todo Name', with: new_todo_name
+    click_on 'Save'
+
+    expect(page).not_to have_content(old_todo_name)
+    expect(page).to have_content(new_todo_name)
+
+    expect(todo.reload.name).to eq(new_todo_name)
+  end
+
   it 'allows deleting todos' do
     todo = FactoryBot.create(:todo, user: user)
 
