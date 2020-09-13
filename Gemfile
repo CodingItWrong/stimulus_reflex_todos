@@ -9,6 +9,8 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 
+gem 'stimulus_reflex', '~> 3.3.0.pre4'
+
 group :development do
   gem 'bullet'
   gem 'dotenv-rails'
