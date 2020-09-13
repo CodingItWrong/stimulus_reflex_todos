@@ -36,4 +36,15 @@ RSpec.describe 'ManagingTodos', type: :system do
 
     expect(Todo.count).to eq(1)
   end
+
+  it 'allows deleting todos' do
+    todo = FactoryBot.create(:todo, user: user)
+
+    sign_in user
+    visit '/'
+
+    expect(page).to have_content(todo.name)
+    click_on 'Delete'
+    expect(page).not_to have_content(todo.name)
+  end
 end
