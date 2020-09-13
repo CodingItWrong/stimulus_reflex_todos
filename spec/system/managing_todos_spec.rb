@@ -21,4 +21,19 @@ RSpec.describe 'ManagingTodos', type: :system do
     end
     expect(page).not_to have_content(other_user_todo.name)
   end
+
+  it 'allows creating todos' do
+    todo_name = 'My Todo'
+
+    sign_in user
+    visit '/'
+
+    fill_in 'New Todo', with: todo_name
+    click_on 'Add'
+
+    expect(page).to have_content(todo_name)
+    expect(find_field('New Todo').value).to eq ''
+
+    expect(Todo.count).to eq(1)
+  end
 end

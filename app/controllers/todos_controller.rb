@@ -5,6 +5,7 @@ class TodosController < ApplicationController
 
   def index
     @todos = current_user.todos.all
+    @todo = current_user.todos.build
   end
 
 end
