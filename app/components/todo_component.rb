@@ -8,5 +8,9 @@ class TodoComponent < ViewComponent::Base
 
   private
 
-  attr_reader :todo
+  attr_reader :todo, :editing_id
+
+  def editing?
+    todo.id == editing_id
+  end
 end

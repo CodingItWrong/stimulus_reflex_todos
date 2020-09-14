@@ -1,5 +1,5 @@
 <li>
-  <% if todo.id == @editing_id %>
+  <% if editing? %>
     <%= form_with model: todo,
       data: { reflex: 'submit->Todos#update' } do |f|
     %>
