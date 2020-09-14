@@ -11,6 +11,7 @@ gem 'turbolinks', '~> 5'
 
 gem 'devise'
 gem 'stimulus_reflex', '~> 3.3.0.pre4'
+gem 'view_component'
 
 group :development do
   gem 'bullet'
