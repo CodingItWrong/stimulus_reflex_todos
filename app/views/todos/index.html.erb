@@ -3,5 +3,5 @@
 <%= render 'new_todo_form', todo: @todo %>
 
 <ul>
-  <%= render @todos %>
+  <%= render TodoComponent.with_collection(@todos, editing_id: @editing_id) %>
 </ul>
