@@ -1,4 +1,12 @@
-<%= form_with model: todo, data: { reflex: 'submit->Todos#create', controller: 'todos' } do |f| %>
-  <%= f.text_field :name, placeholder: 'New Todo', data: { target: 'todos.name' } %>
+<%= form_with model: todo,
+  data: {
+    reflex: 'submit->Todos#create',
+    controller: 'todos',
+  } do |f|
+%>
+  <%= f.text_field :name,
+    placeholder: 'New Todo',
+    data: { target: 'todos.name' }
+  %>
   <%= f.submit 'Add' %>
 <% end %>

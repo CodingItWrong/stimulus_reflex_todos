@@ -1,13 +1,25 @@
 <li>
   <% if todo.id == @editing_id %>
-    <%= form_with model: todo, data: { reflex: 'submit->Todos#update' } do |f| %>
+    <%= form_with model: todo,
+      data: { reflex: 'submit->Todos#update' } do |f|
+    %>
       <%= f.text_field :name, placeholder: 'Todo Name' %>
       <%= f.submit 'Save' %>
       <button data-reflex="click->Todos#cancel_edit">Cancel</button>
     <% end %>
   <% else %>
     <%= todo.name %>
-    <button data-reflex="click->Todos#edit" data-id="<%= todo.id %>">Edit</button>
-    <button data-reflex="click->Todos#delete" data-id="<%= todo.id %>">Delete</button>
+    <button
+      data-reflex="click->Todos#edit"
+      data-id="<%= todo.id %>"
+    >
+      Edit
+    </button>
+    <button
+      data-reflex="click->Todos#delete"
+      data-id="<%= todo.id %>"
+    >
+      Delete
+    </button>
   <% end %>
 </li>
