@@ -12,7 +12,8 @@ This is a short description of your app.
 ### Setup
 
 ```sh
-$ bin/bootstrap
+$ bundle install
+$ rails db:setup
 ```
 
 ### Testing
@@ -24,7 +25,7 @@ $ bin/rspec
 ### Running
 
 ```sh
-$ bin/rails server
+$ rails server
 ```
 
 [postgres-app]: http://postgresapp.com
